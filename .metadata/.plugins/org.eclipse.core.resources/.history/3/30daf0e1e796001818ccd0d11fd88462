@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="test.js"></script>
+<link rel="stylesheets" href="test.css">
+
+</head>
+<body>
+
+<table>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	</table>
+</body>
+</html>
