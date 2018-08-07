@@ -2,13 +2,7 @@
 <%@page import="java.io.FileWriter"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>write.jsp</title>
-</head>
-<body>
+
 <%
 	request.setCharacterEncoding("euc-kr"); // 한글처리
 	
@@ -22,17 +16,21 @@
 	
 	try{
 		// java 파일 안에서 이미 에러처리를 하기 때문에 안해도 오류가 안뜬다.
-		fw = new FileWriter(realPath);
+		fw = new FileWriter(realPath, true);
+		// 새로 고침하면 계속 추가가 되기 때문에 리다이렉트 처리해야한다.
 		fw.write(userInput + "\n");
 		fw.flush();
+		
+		// 이클립스 서버에서는 임시폴더에 생성된다.
 	} catch(IOException e) {
 		application.log(e.getMessage());
 	} finally {
 		try{ if(fw!= null) fw.close(); } catch(Exception e) {}
 	}
 	
+	response.sendRedirect("list.jsp");
+	//뒤로 가기 해도 적용이 안된다.	
+	//html 코드가 필요없다.
 	
 %>
 
-</body>
-</html>
