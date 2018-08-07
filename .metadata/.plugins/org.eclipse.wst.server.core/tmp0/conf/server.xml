@@ -135,7 +135,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\08_02" path="/08_02" reloadable="true" source="org.eclipse.jst.jee.server:08_02"/><Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Study" path="/Study" reloadable="true" source="org.eclipse.jst.jee.server:Study"/></Host>
+      <Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\08_02" path="/08_02" reloadable="true" source="org.eclipse.jst.jee.server:08_02"/><Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Study" path="/Study" reloadable="true" source="org.eclipse.jst.jee.server:Study"/><Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\127Page" path="/127Page" reloadable="true" source="org.eclipse.jst.jee.server:127Page"/></Host>
     </Engine>
   </Service>
 </Server>

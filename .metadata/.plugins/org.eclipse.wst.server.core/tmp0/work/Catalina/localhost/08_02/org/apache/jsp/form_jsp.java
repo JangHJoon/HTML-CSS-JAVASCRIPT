@@ -3,10 +3,15 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import javax.swing.JFrame;
 
 public final class form_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+
+	
+	
+	
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List _jspx_dependants;
@@ -42,7 +47,7 @@ public final class form_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       response.setContentType("text/html; charset=EUC-KR");
       pageContext = _jspxFactory.getPageContext(this, request, response,
-      			null, true, 8192, true);
+      			"list31.jsp", true, 4096, false);
       _jspx_page_context = pageContext;
       application = pageContext.getServletContext();
       config = pageContext.getServletConfig();
@@ -50,6 +55,10 @@ public final class form_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("    \r\n");
+      out.write("    \r\n");
       out.write("\r\n");
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
@@ -68,6 +77,24 @@ public final class form_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<br />\r\n");
       out.write("\t<input type=\"submit\" value=\"전송\" />\r\n");
       out.write("\t</form>\r\n");
+      out.write("\t");
+
+		
+	
+	
+      out.write('\r');
+      out.write('\n');
+      out.write('	');
+      out.write("\r\n");
+      out.write("\t\r\n");
+      out.write("\t");
+
+	
+		
+	
+	
+      out.write("\r\n");
+      out.write("\t\r\n");
       out.write("\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
