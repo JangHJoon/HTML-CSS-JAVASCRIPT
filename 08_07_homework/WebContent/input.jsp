@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-g
+
 	<form action="write.jsp" method="post">		
 		이름 : <input type="text" name="name"/><br>
 		전화번호 : <input type="text" name="tel" /><br>

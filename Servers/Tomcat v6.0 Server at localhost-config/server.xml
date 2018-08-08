@@ -135,7 +135,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="08_02" path="/08_02" reloadable="true" source="org.eclipse.jst.jee.server:08_02"/><Context docBase="Study" path="/Study" reloadable="true" source="org.eclipse.jst.jee.server:Study"/><Context docBase="127Page" path="/127Page" reloadable="true" source="org.eclipse.jst.jee.server:127Page"/><Context docBase="08_07" path="/08_07" reloadable="true" source="org.eclipse.jst.jee.server:08_07"/><Context docBase="08_07_homework" path="/08_07_homework" reloadable="true" source="org.eclipse.jst.jee.server:08_07_homework"/></Host>
+      <Context docBase="Study" path="/Study" reloadable="true" source="org.eclipse.jst.jee.server:Study"/><Context docBase="127Page" path="/127Page" reloadable="true" source="org.eclipse.jst.jee.server:127Page"/></Host>
     </Engine>
   </Service>
 </Server>
