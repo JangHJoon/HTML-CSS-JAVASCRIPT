@@ -135,7 +135,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/></Host>
+      <Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="F:\HYUNJOON\tomcat\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\127Page" path="/127Page" reloadable="true" source="org.eclipse.jst.jee.server:127Page"/></Host>
     </Engine>
   </Service>
 </Server>
