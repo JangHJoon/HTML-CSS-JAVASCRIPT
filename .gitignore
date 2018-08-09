@@ -1,7 +1,7 @@
 # my ignore path and file
 
 Servers/
-
+.metadata
 
 
 # Created by https://www.gitignore.io/api/eclipse,windows,visualstudiocode
