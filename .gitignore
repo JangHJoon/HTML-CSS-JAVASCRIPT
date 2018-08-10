@@ -1,7 +1,6 @@
-# my ignore path and file
+# Web Project Server Directory
 
 Servers/
-.metadata
 
 
 # Created by https://www.gitignore.io/api/eclipse,windows,visualstudiocode
@@ -16,7 +15,7 @@ tmp/
 *.swp
 *~.nib
 local.properties
-.settings/
+#.settings/
 .loadpath
 .recommenders
 
