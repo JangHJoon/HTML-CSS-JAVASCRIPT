@@ -26,9 +26,9 @@ jsp java 파일을 확인해보면 코드가 그대로 추가된다.
 
 ---
 `readParameter.jsp`   
-![](img/errorPage1.PNG)   
+![alt text](img/errorPage1.PNG)   
 `readParameter_jsp.java`   
-![](img/errorPage2.PNG)   
+![alt text](img/errorPage2.PNG)   
 
 ```
 페이지 디렉티브에서 에러페이지를 설정하면   
@@ -50,9 +50,9 @@ pageContext 객체는 handlePageException 메소드에 예외 객체를 넘긴�
 ---
 
 `error/viewErrorMessage.jsp`   
-![](img/exceptionObj1.PNG)   
+![alt text](img/exceptionObj1.PNG)   
 `error/viewErrorMessage_jsp.java`   
-![](img/exceptionObj2.PNG)   
+![alt text](img/exceptionObj2.PNG)   
 
 ``` 
 페이지 디렉티브에서 isErrorPage="true" 일때
@@ -72,7 +72,7 @@ java 파일을 보면 exception 객체가 추가 되는 것을 확인 할 수 �
 
 `web.xml`   
 
-![](img/webxml1.PNG)   
+![alt text](img/webxml1.PNG)   
 
 ```
 에러 페이지를 처리하는 다른 방법은 
