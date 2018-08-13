@@ -6,11 +6,20 @@
 
 ![](img/jspforward.png)
 
+<table>
+    <th></th>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+</table>
+
+
+
 |비교|include 액션|forward 액션|
 |---|-------|-------|
 |처리|해당 url에 코드가 삽입된다.|url는 유지한채<br /> 처리되는 내부 jsp파일이 바뀐다.|
 |제어권|해당 url로 제어권이 돌아온다.|제어권이 forward page로 넘어간다.|
-| 공통 <td colspan="2"> `<jsp:param name="name" value="value"> `로 인수를 넘길 수 있다. |
+| 공통 <td colspan="3"> `<jsp:param name="name" value="value"> `로 인수를 넘길 수 있다. |
 |ddddddddddddd
 
 
