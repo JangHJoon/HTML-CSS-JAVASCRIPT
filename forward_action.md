@@ -1,17 +1,21 @@
 # <jsp:forward page="forward.jsp">
 
-* request 유지
+* request 기본 객체를 전달
 * url 노출 x
 * 하위 태그는 실행 되지 않고 버퍼를 비운다.
 
 ![](img/jspforward.png)
 
-<table>
-    <th></th>
-    <tr></tr>
-    <tr></tr>
-    <tr></tr>
-</table>
+```jsp
+<jsp:forward page="/to/to.jsp" />
+```
+
+```java
+if (true) {
+        _jspx_page_context.forward("/to/to.jsp");
+        return;
+      }
+```
 
 
 
@@ -23,8 +27,6 @@
 |ddddddddddddd
 
 
-
-<br />
 
 
 
