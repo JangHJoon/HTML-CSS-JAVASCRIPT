@@ -6,6 +6,11 @@
 
 ![](img/session.jpg)
 
+* getId()
+* getCreationTime()
+* getLastAccessedTime()
+
+<br>
 
 |비교|cookie|session|
 |---|---|---|
@@ -58,5 +63,5 @@
 |---|---|---|
 |기존의 session 객체가 있으면| 기존의 session | 기존의 session|
 |기존의 session 객체가 없으면| 새로운 session | null|
-||reqeust.getSession()|pageContext.getSession()|
+||request.getSession()|pageContext.getSession()|
 

@@ -1,4 +1,4 @@
-# 쿠기(Cookie)
+# 쿠키(Cookie)
 
 ![](img/cookie.png)
 
