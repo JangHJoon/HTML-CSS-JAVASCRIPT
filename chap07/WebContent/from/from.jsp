@@ -9,7 +9,10 @@
 
 이 페이지는 from.jsp가 생성한 것입니다.
 
-<jsp:forward page="/to/to.jsp" />
+<jsp:forward page="/to/to.jsp">
+	<jsp:param value="first" name="BK"/>
+	<jsp:param value="last" name="Choi"/>
+</jsp:forward>
 
 </body>
 </html>
