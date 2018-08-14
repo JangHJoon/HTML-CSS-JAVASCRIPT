@@ -1,4 +1,4 @@
-# <jsp:forward page="forward.jsp">
+# `<jsp:forward page="forward.jsp">`
 
 
 ![](img/jspforward.png)
@@ -26,10 +26,26 @@ if (true) {
 
 |비교|include 액션|forward 액션|
 |---|-------|-------|
-|처리|해당 url에 코드가 삽입된다.|url는 유지한채<br /> 처리되는 내부 jsp파일이 바뀐다.|
-|제어권|해당 url로 제어권이 돌아온다.|제어권이 forward page로 넘어간다.|
-| 공통 <td colspan="3"> `<jsp:param name="name" value="value"> `로 인수를 넘길 수 있다. 
+|처리|해당 파일에 include 코드가 삽입| 기존의 출력퍼버를 지우고<br /> foward를 출력한다.|
+|제어권|제어권이 include로 갔다가<br />해당 url로 돌아온다. |제어권이 forward로 넘어간다.|
 
+
+## param 액션태그 
+* from.jsp
+```jsp
+<jsp:forward page="/to/to.jsp">
+	<jsp:param value="first" name="BK"/>
+	<jsp:param value="last" name="Choi"/>
+</jsp:forward>
+```
+* from_jsp.java
+```java
+if (true) {
+        _jspx_page_context.forward("/to/to.jsp" + (("/to/to.jsp").indexOf('?')>0? '&': '?') + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("BK", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("first", request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("Choi", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("last", request.getCharacterEncoding()));
+        return;
+}
+```
+get형식으로 param값을 넘기는 것을 알 수 있다.
 
 ## forward 액션태그와 출력 버퍼
 
@@ -37,6 +53,3 @@ if (true) {
 > forward 액션태그가 제대로 작동하기 위해서는  
 > 출력버퍼가 채워지기 전에 액션태그가 실행되어야 한다. 
 
-> WEB_INF 폴더안의 jsp파일은   
-> 사용자가 직접 접근이 불가능하다.
->  
