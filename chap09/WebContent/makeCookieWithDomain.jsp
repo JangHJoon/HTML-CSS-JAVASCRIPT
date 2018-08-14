@@ -2,7 +2,7 @@
 <%@ page import = "java.net.URLEncoder" %>
 <%
 	Cookie cookie1 = new Cookie("id", "madvirus");
-	cookie1.setDomain(".somehost.com");
+	cookie1.setDomain("localhost");
 	response.addCookie(cookie1);
 	
 	Cookie cookie2 = new Cookie("only", "onlycookie");
