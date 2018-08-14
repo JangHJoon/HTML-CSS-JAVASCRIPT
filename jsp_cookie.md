@@ -102,7 +102,8 @@ if (cookies != null && cookies.length > 0) {
 %>
 ```
 
-![](img/checkCookie.png)   
+![](img/checkCookie.PNG)   
+
 세번째 쿠키는 타 도메인이기 때문에 보안상 웹브라우저가 저장하지 않는다.
 
 <br>
