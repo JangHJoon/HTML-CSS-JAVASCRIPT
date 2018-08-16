@@ -14,6 +14,13 @@
     response.addCookie(cookie);
 %>
 ```
+```
+HTTP/1.1 200 OK Server: Apache-Coyote/1.1 
+Set-Cookie: key=value
+Content-Type: text/html;charset=utf-8 
+Content-Length: 127 
+Date: Thu, 16 Aug 2018 00:06:51 GMT
+```
 
 <br>
 
@@ -74,6 +81,13 @@ if (cookies != null && cookies.length > 0) {
 }
 %>
 ```
+```
+HTTP/1.1 200 OK Server: Apache-Coyote/1.1 
+Set-Cookie: name=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT 
+Content-Type: text/html;charset=utf-8 
+Content-Length: 107
+Date: Thu, 16 Aug 2018 00:14:45 GMT
+```
 >an integer specifying the maximum age of the cookie in seconds  
 >if negative, means the cookie is not stored  
 >if zero, deletes the cookie
@@ -100,6 +114,15 @@ if (cookies != null && cookies.length > 0) {
     cookie3.setDomain("javacan.tistory.com");
     response.addCookie(cookie3);
 %>
+```
+```
+HTTP/1.1 200 OK Server: Apache-Coyote/1.1 
+Set-Cookie: id=madvirus; Domain=localhost 
+Set-Cookie: only=onlycookie 
+Set-Cookie: invalid=invalidcookie; Domain=javacan.tistory.com 
+Content-Type: text/html;charset=utf-8
+Content-Length: 228 
+Date: Thu, 16 Aug 2018 00:16:24 GMT
 ```
 
 ![](img/checkCookie.PNG)   
@@ -132,7 +155,17 @@ if (cookies != null && cookies.length > 0) {
 	response.addCookie(cookie4);
 %>
 ```
-
+```
+HTTP/1.1 200 OK 
+Server: Apache-Coyote/1.1 
+Set-Cookie: path1=%EA%B2%BD%EB%A1%9C%3A%2Fchap09%2Fpath1; Path=/chap09/path1 
+Set-Cookie: path2=%EA%B2%BD%EB%A1%9C%3A 
+Set-Cookie: path3=%EA%B2%BD%EB%A1%9C%3A%2F; Path=/ 
+Set-Cookie: path4=%EA%B2%BD%EB%A1%9C%3A%2Fchap09%2Fpath2; Path=/chap09/path2 
+Content-Type: text/html;charset=utf-8 
+Content-Length: 343
+Date: Thu, 16 Aug 2018 00:18:08 GMT
+```
 ![](img/checkCookie2.png)   
 현재 경로가 아닌 네번째 쿠키는 저장 되지 않는다.
 
@@ -146,5 +179,13 @@ if (cookies != null && cookies.length > 0) {
     cookie.setMaxAge(60 * 60); // 60초(1분) * 60 = 1시간
     response.addCookie(cookie);
 %>
+```
+```
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: oneh=1time; Expires=Thu, 16-Aug-2018 01:24:52 GMT
+Content-Type: text/html;charset=utf-8
+Content-Length: 134
+Date: Thu, 16 Aug 2018 00:24:52 GMT
 ```
 ![](img/checkCookie3.png)
