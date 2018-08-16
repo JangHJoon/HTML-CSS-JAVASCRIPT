@@ -2,8 +2,6 @@
 
 `<%@ page session="true" %>`
 
-<br>
-
 ![](img/session.jpg)
 
 * getId()
