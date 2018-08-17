@@ -7,6 +7,11 @@ public class UserData implements Serializable{
 	private String u_id;
 	private String u_pw;
 	private String u_name;
+	
+	@Override
+	public String toString() {
+		return "UserData [u_id=" + u_id + ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_nick=" + u_nick + "]";
+	}
 	private String u_nick;
 	
 	

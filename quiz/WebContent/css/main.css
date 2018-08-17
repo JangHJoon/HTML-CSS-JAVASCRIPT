@@ -5,6 +5,10 @@
 		font-size : 2em;
 		font-weight : bold;
 }
+.hello{
+		font-size : 1em;
+		text-align : center;
+}
 .btns {
 			margin-top : 1em;
 			text-align : center;
