@@ -4,7 +4,7 @@ import java.util.Vector;
 
 import javax.servlet.ServletContext;
 
-// 서버 데이터 관련(application) 메소드를 따로 빼서 구현
+// 서버 데이터 관련(application) 메소드를 따로 빼서 구현함
 public class MemberManager {
 	
 	public static Vector<Member> getMemberList(ServletContext application) {

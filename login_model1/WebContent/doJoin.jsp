@@ -16,5 +16,5 @@
 		nextPage = "join.jsp";
 	} 
 	session.setAttribute("msg", msg);
-	response.sendRedirect(nextPage);
+	response.sendRedirect(nextPage); // 서버 데이터 관련이라 리다이렉트 적용
 %>

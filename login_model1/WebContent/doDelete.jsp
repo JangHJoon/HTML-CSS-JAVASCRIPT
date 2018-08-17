@@ -6,7 +6,7 @@
 	
 	if(MemberManager.deleteMember(application, member.getU_id())) {
 		session.invalidate();
-		session = request.getSession();
+		session = request.getSession(); // 새로운 세션 생성
 		session.setAttribute("msg", "회원탈퇴가 완료되었습니다.");
 		response.sendRedirect("loginForm.jsp");
 	} else {		

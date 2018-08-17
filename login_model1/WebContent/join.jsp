@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="org.doo.MessageManager" %>
 <%
 	String msg = (String)session.getAttribute("msg");
 	if(msg == null) {
@@ -17,12 +16,13 @@
 	function checkAndMove() {
 		var obj = document.joinForm;
 		
-		var flag = true;
+		var flag = true; // flag로 각 if문 단계별 탐지
+		
 		for(var i=0; flag && i<obj.length; i++) {			
 			if(obj[i].type.toLowerCase() != "button") {
-				if(obj[i].value.trim().length == 0) {
+				if(obj[i].value.trim().length == 0) { // 빈칸 확인
 					document.getElementById("msg").innerHTML = 
-					"필수입력항목 누락 : " + obj[i].title;
+					"필수입력항목 누락 : " + obj[i].title; // input 데이터의 Title속성 값
 					flag = false;
 				}
 			}

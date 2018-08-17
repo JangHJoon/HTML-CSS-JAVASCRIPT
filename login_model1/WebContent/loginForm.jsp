@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%
 	String msg = (String)session.getAttribute("msg");
-	// 사용자 관련 메서지를 세션에 저장
+	// 사용자 관련 메서지를 세션에 저장함
 
 	if(msg == null) {
 		msg = "어서오세요";

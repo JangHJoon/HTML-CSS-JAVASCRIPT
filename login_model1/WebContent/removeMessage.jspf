@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
+	// 사용자 관련 메세지를 include 디렉티브로 매 페이지 삭제
 	session.removeAttribute("msg");
 %>

@@ -4,7 +4,7 @@
     
 <%@ page import="org.doo.*" %>
 <%
-	request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("euc-kr"); // SHOULD
 	member.setU_pw(request.getParameter("u_pw"));
 	member.setU_nick(request.getParameter("u_nick"));	
 	

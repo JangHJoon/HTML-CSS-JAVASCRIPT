@@ -12,7 +12,7 @@
 		location.href = "logout.jsp";
 	}
 	
-	function goInfo() {
+	function goInfo() { // why
 		var obj = document.successForm;
 		obj.action = "goInfo.jsp";
 		obj.method = "post";
