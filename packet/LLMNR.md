@@ -2,7 +2,7 @@
 
 로컬 링크상에서 호스트의 이름을 조회하는데 이용되는 프로토콜이다.
 
-원도우 7, 비스타에 기본으로 포함되어 있다.
+윈도 비스타, 윈도 서버 2008, 윈도 7, 윈도 8에 포함되어 있다.
 
 이전에 네크워크 상 주변에 있는 컴퓨터 이름을 조회하기 위해서 NetBIOS를 이용을 했다. 
 그런데, NetBIOS가 IPv4 환경에서만 작동하기 때문에 양 환경에서 모두 이용될 수 있는 LLMNR프로토콜이 요구되었다.
@@ -15,8 +15,9 @@
 
 <br>
 
+![](../img/wireShark2.png)
 
-> WireShark Filter : llmnr
+> Filter : llmnr
 
 ```
 Frame 1: 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface 0
