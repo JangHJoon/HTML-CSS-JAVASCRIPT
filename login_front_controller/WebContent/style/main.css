@@ -1,0 +1,54 @@
+@CHARSET "EUC-KR";
+body {
+		font-size: 1em;
+		text-align:center;
+}
+label {		
+	text-align: left;		
+	width: 5em;
+	display:inline-block;
+}
+input[type="text"], input[type="password"] {		
+	height: 1.2em;
+	width: 10em;
+	margin-bottom: 0.5em;
+}
+input[type="button"], input[type="submit"] {
+	font-size: 0.8em;
+}
+#mainBox {
+	margin: 0 auto;
+	width: 20em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	border-top:4px double gray;
+	border-bottom: 4px double gray;
+	padding: 2em;
+	background-color: #F9F9F9;
+}
+a {
+	text-decoration: none;
+	color: blue;
+	font-weight: bold;
+}
+#titleBox {	
+	margin: 0 auto;
+	margin-top: 1em;	
+	width: 20em;
+	height: 2em;
+	line-height: 2em;
+	font-weight: bold;
+	color: #5D5D5D;
+	border-top: 4px double gray;
+	border-bottom: 4px double gray;	
+	background-color: #FFFFD2;
+}
+#innerText {
+	margin-bottom: 1em;
+	font-size: 0.8em;	
+}
+#msgBox {
+	color: blue;
+	font-weight: bold;
+	font-size: 0.8em;
+}
