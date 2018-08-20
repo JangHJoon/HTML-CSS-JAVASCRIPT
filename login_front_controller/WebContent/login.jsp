@@ -20,9 +20,11 @@
 		<br/>		
 		<input type="button" value="로그인" onclick="doWhat(this.form, 'login', true)"/>
 		<input type="button" value="회원가입" onclick="doWhat(this.form, 'goJoin')"/>	
-		<input type="hidden" name="cmd" />	
+		<input type="hidden" name="cmd" />
+		<%-- hidden 사용처 => 자바스크립트로 값을 post형식으로 넣어서 보낼때 --%>	
 	</form>
 	</div>	
 	<div id="msgBox"><%= request.getAttribute("msg") %></div>
+	<%-- request 객체에 msg를 담아서 보냄 --%>
 </body>
 </html>

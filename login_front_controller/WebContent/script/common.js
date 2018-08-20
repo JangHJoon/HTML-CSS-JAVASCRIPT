@@ -7,27 +7,33 @@
 function doWhat() {
 	var formObj = arguments[0];	
 	formObj.action = "main.jsp";
+	// ¾×¼ÇÃ³¸®´Â ¸ðµÎ main.jsp(front controller)¿¡¼­ 
+	
 	var pass = true;
 	if(arguments[2]) {		
-		method = "post";
+		formObj.method = "post";
 		pass = hasBlank(formObj);
 	}
+	
 	if(pass) {
 		formObj.cmd.value = arguments[1];	
+		// ÀÚ¹Ù½ºÅ©¸³Æ®·Î ³Ñ±æ °ªµéÀ» Ãß°¡ ÇÒ ¶§ *****
 		formObj.submit();
 	}	
 }
 
 function hasBlank() {
 	var formObj = arguments[0];
-	var checkList = new Array("text", "password", "textarea");
+	var checkList = ["text", "password"];	
+	//var checkList = new Array("text", "password", "textarea");
+	 
 	var pass = true;
 	for(var i=0; pass && i<formObj.length; i++) {
 		var field = formObj[i];
-		if(checkList.indexOf(field.type) != -1) {
-			if(field.value == "") {
+		if(checkList.indexOf(field.type) != -1) { // ÇØ´ç type È®ÀÎ
+			if(field.value.trim() == "") { // type ºóÄ­ °Ë»ç
 				pass = false;
-				alert("í•„ìˆ˜ìž…ë ¥ì‚¬í•­ëˆ„ë½.(" + field.title + ")");
+				alert("ÇÊ¼öÀÔ·Â»çÇ×´©¶ô.(" + field.title + ")");
 				field.focus();
 			}
 		}		

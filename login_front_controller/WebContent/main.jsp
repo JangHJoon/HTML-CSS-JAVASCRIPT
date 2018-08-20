@@ -2,9 +2,19 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="java.util.*" %>
 <%@ page import="kr.ac.green.*" %>
-<%!
+
+<%! // 선언부
 	private Vector<User> getList(HttpServletRequest request) {		
-		ServletContext application = request.getSession().getServletContext();
+		
+		//The application object in JSP is called the ServletContext object in a servlet
+		ServletContext application = request.getSession().getServletContext();	
+		/*
+			ServletContext application1 = request.getSession().getServletContext();
+			ServletContext application2 = getServletConfig().getServletContext();
+			ServletContext application3 = getServletContext();
+			ServletContext application4 = pageContext.getServletContext();
+	    */
+		
 		Vector<User> list = (Vector<User>)application.getAttribute("list");		 
 		if(list == null) {
 			list = new Vector<User>();
@@ -13,10 +23,13 @@
 		return list;
 	}
 %>
+
 <%
+	
 	if(request.getMethod().equalsIgnoreCase("post")) {
 		request.setCharacterEncoding("euc_kr");
 	}
+	// post 일때 인코딩 설정
 
 	String cmd = request.getParameter("cmd");
 	if(cmd == null) cmd = "start";
@@ -27,6 +40,7 @@
 	if(cmd.equals("start")) {
 		msg = "어서오세요";
 		nextPage = "login.jsp";
+	
 	} else if(cmd.equals("login")) {
 		nextPage = "loginSuccess.jsp";
 		String uid = request.getParameter("uid");
@@ -37,7 +51,7 @@
 		user.setUpw(upw);
 		
 		Vector<User> list = getList(request);
-		int idx = list.indexOf(user);
+		int idx = list.indexOf(user); // Override - equals
 		nextPage = "login.jsp";
 		if(idx != -1) {
 			User savedUser = list.get(idx);
