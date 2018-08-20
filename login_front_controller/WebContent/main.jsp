@@ -142,5 +142,6 @@
 	} else {
 		request.setAttribute("msg", msg);
 		request.getRequestDispatcher(nextPage).forward(request, response);
+		
 	}
 %>
