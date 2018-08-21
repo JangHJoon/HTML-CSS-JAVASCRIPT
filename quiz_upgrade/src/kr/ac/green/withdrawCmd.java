@@ -38,6 +38,7 @@ public class withdrawCmd implements ICmd{
 			request.setAttribute("nextPage", "loginForm.jsp");
 			
 		} else {
+			request.setAttribute("user", userList.get(id));
 			request.setAttribute("nextPage", "info.jsp?fail=pw");
 			//비밀번호 불일치			
 		}

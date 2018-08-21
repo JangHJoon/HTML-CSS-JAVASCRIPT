@@ -21,6 +21,7 @@ public class CmdFactory {
 		cmdList.put("logout", new logoutCmd());
 		cmdList.put("goSuccess", new goLoginSuccessCmd());
 		cmdList.put("withdraw", new withdrawCmd());
+		cmdList.put("modify", new modifyCmd());
 		
 				
 	}

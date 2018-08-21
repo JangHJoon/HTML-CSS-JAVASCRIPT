@@ -34,7 +34,27 @@
 <script type="text/javascript">
 
 	function modify(){
+		var formObj = document.infoForm;
+		if(chkBlank(formObj) && chkPw(formObj)){
+			
+			formObj.method = "post";
+			formObj.action = "modify.do";
+			formObj.submit();
+			// diable하면 안날라가네 readonly 해야함
+			
+			
+		}
 		
+	}
+	
+	function chkPw(){
+		var formObj = arguments[0];
+		var pass = true;
+		if(formObj.u_pw == formObj.u_re){
+			alert("비밀번호가 일치하지 않습니다.");
+			pass = false;
+		}		
+		return pass;
 	}
 	
 	function chkBlank(){
@@ -82,10 +102,10 @@
 	</p>
 	<form name="infoForm">
 		<div class="centerBox">
-			<label for="u_id">ID :</label> <input type="text" name="u_id" value="<%= user.getId() %>" disabled /><br/>
+			<label for="u_id">ID :</label> <input type="text" name="u_id" value="<%= user.getId() %>" readonly /><br/>
 			<label for="u_pw">PW :</label> <input type="password" name="u_pw" value="" /><br/>
 			<label for="u_re">Retry :</label> <input type="password" name="u_re" value="" /><br/>
-			<label for="u_name">Name :</label> <input type="text" name="u_name" value="<%= user.getName() %>" disabled /><br/>
+			<label for="u_name">Name :</label> <input type="text" name="u_name" value="<%= user.getName() %>" readonly /><br/>
 			<label for="u_nick">Nick :</label> <input type="text" name="u_nick" value="<%= user.getNick() %>" /><br/>				
 			<div class="btns">
 				<input type="button" value="수정" onclick="modify()" />
