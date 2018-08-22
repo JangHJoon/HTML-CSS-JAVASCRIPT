@@ -4,13 +4,18 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%
+	
+	
+	Student[] result = (Student[])request.getAttribute("search");
 
-	MyList list = (MyList)application.getAttribute("list");
-	if(list == null){
-		list = new MyList();
-		application.setAttribute("list", list);
-	}
-
+	if(result == null){
+		
+		//페이지 해야함
+		MyList list = (MyList)application.getAttribute("list");
+		if(list != null){
+			result = list.values().toArray(new Student[0]);			
+		}
+	} 
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <b>Student List</b>
@@ -23,7 +28,7 @@
 		<td>Class</td>
 	</tr>
 	<% 
-	if(list.size() == 0){
+	if(result == null || result.length == 0){
 	
 	%>
 	<tr>
@@ -34,16 +39,16 @@
 	
 	} else {
 	
-		for(Integer index : list.keySet()){
+		for(Student s: result){
 			
 	%>
 			
 		<tr>
-			<td><%= index %></td>
-			<td><%= list.get(index).getName() %></td>
-			<td><%= list.get(index).getTel() %></td>
-			<td><%= list.get(index).getGrade() %></td>
-			<td><%= list.get(index).getClazz() %></td>
+			<td><%= s.getId() %></td>
+			<td><%= s.getName() %></td>
+			<td><%= s.getTel() %></td>
+			<td><%= s.getGrade() %></td>
+			<td><%= s.getClazz() %></td>
 			
 		</tr>		
 			
@@ -63,6 +68,6 @@
 	}
 	%>
 	<tr>
-		<td colspan="5"> temp </td>
+		<td colspan="5"> <%= result==null?0:result.length %> row(s) </td>
 	</tr>	
 </table>

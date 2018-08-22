@@ -12,7 +12,17 @@ public class CmdFactory {
 	public static void init(){
 		
 		cmdList = new Hashtable<String, ICmd>();
-		cmdList.put("goInput", new GoInputCmd());
+		cmdList.put("goInsert", new GoInsertCmd());
+		cmdList.put("goList", new GoListCmd());
+		cmdList.put("goModify", new GoModifyCmd());
+		cmdList.put("goDelete", new GoDeleteCmd());
+		
+		cmdList.put("insert", new InsertCmd());
+		cmdList.put("search", new SearchCmd());
+		cmdList.put("modify", new ModifyCmd());
+		cmdList.put("delete", new DeleteCmd());
+		
+		
 		
 				
 	}

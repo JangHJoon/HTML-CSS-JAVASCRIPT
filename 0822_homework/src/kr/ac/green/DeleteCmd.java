@@ -4,20 +4,20 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class InsertCmd implements ICmd{
+public class DeleteCmd implements ICmd {
 
 	@Override
 	public void todo(HttpServletRequest request) {
 		
-		
-		
-		
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String tel = request.getParameter("tel");
 		String grade = request.getParameter("grade");
 		String clazz = request.getParameter("class");
 		
 		// null check
+		
+		int index = Integer.parseInt(id);
 		
 		
 		HttpSession session = request.getSession();
@@ -28,17 +28,10 @@ public class InsertCmd implements ICmd{
 			application.setAttribute("list", list);
 		}
 			
-		list.add(name, tel, grade, clazz);
+		list.remove(index);
 		
 		
 		request.setAttribute("nextPage", request.getContextPath());
 		request.setAttribute("isRedirect", true);
-				
-		
-		
-		
-		
 	}
-	
-
 }

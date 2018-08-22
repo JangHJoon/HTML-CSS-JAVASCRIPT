@@ -2,8 +2,24 @@
     pageEncoding="EUC-KR"%>
 <%
     
+	String rightPage = "studentList.jsp";
 	String menu = request.getParameter("menu");
 	
+	if(menu == null){
+		menu = "list";
+	}
+	
+	
+	
+	if(menu.equals("list")){
+		rightPage="studentList.jsp";
+	} else if(menu.equals("insert")){
+		rightPage="insert.jsp";
+	} else if(menu.equals("modify")){
+		rightPage="modify.jsp";
+	} else if(menu.equals("delete")){
+		rightPage="delete.jsp";
+	} 
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,7 +45,7 @@
 	}
 	
 	#top{
-	margin: 0 auto;
+	
 		width: 	100%;
 		height: 100%;
 	}
@@ -37,13 +53,19 @@
 	#left{
 		float: left;
 		width: 30%;
-		height: 80%;
+		height: 100%;
 	}
 	
 	#right_top{
 		float: right;
 		width: 70%;
-		height: 80%;
+		height: 30%;
+	}
+	
+	#right_bottom{
+		float: right;
+		width: 70%;
+		height: 70%;
 	}
 	</style>
 </head>
@@ -52,22 +74,27 @@
 
 <div id="whole">
 	<div id="top">
-	<jsp:include page="title.jsp" />
+		<jsp:include page="title.jsp" />
 	</div>
-<%
-%>	
+
 	<div id="left">
-	<jsp:include page="menu.jsp" />
+		<jsp:include page="menu.jsp" />
 	</div>
 	
 	<div id="right_top">
-	<jsp:include page="search.jsp" />
-	</div>
-
 <%
+	if(!menu.equals("insert")){
+%>
+		<jsp:include page="search.jsp" />
+<%
+	}	
+%>
+	</div>
+<%
+
 %>	
 	<div id="right_bottom">
-	<jsp:include page="studentList.jsp" />
+	<jsp:include page="<%= rightPage %>" />
 	</div> 
 </div>
 

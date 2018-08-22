@@ -16,10 +16,10 @@
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script>
-	function modify(){
+	function del(){
 		var formObj = document.modifyForm;
 		formObj.method="post";
-		formObj.action="modify.do"
+		formObj.action="delete.do"
 		formObj.submit();
 	}
 
@@ -28,10 +28,10 @@
 <form name="modifyForm">
 	ID <input type="text" name="id" value="<%= result[0].getId() %>" readonly /> <br />
 	NAME <input type="text" name="name" value="<%= result[0].getName() %>" readonly /> <br />
-	Tel <input type="text" name="tel" value="<%= result[0].getTel() %>" /> <br />
-	Grade <input type="text" name="grade" value="<%= result[0].getGrade() %>" /> <br />
-	Class <input type="text" name="class" value="<%= result[0].getClazz() %>" /> <br />
-	<input type="button" value="modify" onclick="modify()" />
+	Tel <input type="text" name="tel" value="<%= result[0].getTel() %>" readonly /> <br />
+	Grade <input type="text" name="grade" value="<%= result[0].getGrade() %>"  readonly /> <br />
+	Class <input type="text" name="class" value="<%= result[0].getClazz() %>"  readonly /> <br />
+	<input type="button" value="delete" onclick="del()" />
 </form>
 <%
 	}

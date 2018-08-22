@@ -15,7 +15,7 @@
 		
 	}
 </script>
-<form id="insertForm">
+<form name="insertForm">
 	NAME <input type="text" name="name" /> <br />
 	Tel <input type="text" name="tel" /> <br />
 	Grade <input type="text" name="grade" /> <br />

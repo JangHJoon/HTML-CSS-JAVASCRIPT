@@ -2,6 +2,7 @@ package kr.ac.green;
 
 public class Student {
 	
+	private int id;
 	private String name;
 	private String tel;
 	private String grade;
@@ -9,13 +10,22 @@ public class Student {
 
 	public Student() {}
 	
-	public Student(String name, String tel, String grade, String clazz) {
+	public Student(int id, String name, String tel, String grade, String clazz) {
+		this.id = id;
 		this.name = name;
 		this.tel = tel;
 		this.grade = grade;
 		this.clazz = clazz;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -45,10 +55,7 @@ public class Student {
 	public boolean equals(Object obj) {
 		if(obj != null && obj instanceof Student){
 			Student s = (Student)obj;			
-			if(name.endsWith(s.getName()) && 
-					tel.equals(s.getTel()) &&
-					grade.equals(s.getGrade()) &&
-					clazz.equals(s.getClazz())){
+			if(id == s.getId()){
 				return true;
 			}			
 		}

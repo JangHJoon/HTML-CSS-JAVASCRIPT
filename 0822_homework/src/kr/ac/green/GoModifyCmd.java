@@ -2,13 +2,13 @@ package kr.ac.green;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class GoInputCmd implements ICmd{
+public class GoModifyCmd implements ICmd{
 
 	@Override
 	public void todo(HttpServletRequest request) {
-		request.setAttribute("nextPage", "main.jsp?menu=input");
+		request.setAttribute("nextPage", "main.jsp?menu=modify");
+		
 	}
-	
 	
 
 }
