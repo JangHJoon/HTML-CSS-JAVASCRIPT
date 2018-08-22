@@ -41,14 +41,30 @@
 		
 		function chkBlank(){
 			var formObj = arguments[0];
-			for(var i=0 ; i<formObj.length ; i++){
+			var pass = true;
 			
-				if(formObj[i].type != "button"){
-					if(!formObj[i].value.trim())
-						return false;
+			for(var i=0 ; pass && i<formObj.length ; i++){
+				var field = formObj[i];	
+				if(field.type != "button"){
+					if(!field.value.trim()){
+						var name = formObj[i].previousSibling.previousSibling.innerHTML.replace(" :","");
+						var msg = name + "을 입력하세요";
+						sendMsg(msg);
+						pass = false;
+					}
 				}				
 			}			
-			return true;			
+			return pass;
+		}
+		
+		function sendMsg(){
+			var msg = arguments[0];
+			var msgBox = document.getElementById("msgBox");
+			if(msgBox){
+				msgBox.innerHTML = msg;
+			} else {
+				alert(msg);
+			}
 		}
 		
 		function goJoin(){
@@ -73,7 +89,7 @@
 				<input type="button" value="회원가입" onclick="goJoin()" />
 			</div>
 		</div>
-		<div class="msgBox">
+		<div class="msgBox" id="msgBox">
 			<%= msg %>
 		</div>		
 	</form>

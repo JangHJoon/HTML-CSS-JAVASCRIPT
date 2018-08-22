@@ -64,13 +64,43 @@
 			var field = formObj[i];	
 			if(field.type != "button"){
 				if(!field.value.trim()){
-					var name = formObj[i].label.innerHtml;
-					alert(name + "을 입력하세요!");
+					var name = formObj[i].previousSibling.previousSibling.innerHTML.replace(" :","");
+					var msg = name + "을 입력하세요";
+					sendMsg(msg);
 					pass = false;
 				}
 			}				
 		}			
 		return pass;
+	}
+	
+	function sendMsg(){
+		var msg = arguments[0];
+		var msgBox = document.getElementById("msgBox");
+		if(msgBox){
+			msgBox.innerHTML = msg;
+		} else {
+			alert(msg);
+		}
+	}
+	
+	function chkSamePw(){
+		
+	}
+	
+	function addListener(){
+		var pw = document.getElementById("u_pw");
+		var re = document.getElementById("u_re");
+		
+		if(pw && re){
+			
+			pw.addEventListener("onblur", chkSamePw)
+			
+			
+		}
+		
+		
+		
 	}
 
 </script>
@@ -82,7 +112,7 @@
 	<form name="joinForm">
 		<div class="centerBox">
 			<label for="u_id">ID :</label> <input type="text" name="u_id" value="<%= user.getId() %>" /><br/>
-			<label for="u_pw">PW :</label> <input type="password" name="u_pw" value="<%= user.getId() %>" /><br/>
+			<label for="u_pw">PW :</label> <input type="password" name="u_pw" value="<%= user.getId() %>"  /><br/>
 			<label for="u_re">Retry :</label> <input type="password" name="u_re" value="<%= user.getPw() %>" /><br/>
 			<label for="u_name">Name :</label> <input type="text" name="u_name" value="<%= user.getName() %>" /><br/>
 			<label for="u_nick">Nick :</label> <input type="text" name="u_nick" value="<%= user.getNick() %>" /><br/>				
@@ -91,7 +121,7 @@
 				<input type="button" value="취소" onclick="goLogin()" />		
 			</div>
 		</div>
-		<div class="msgBox" id="msg">
+		<div class="msgBox" id="msgBox">
 			<%= msg %>
 		</div>	
 	</form>	

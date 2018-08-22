@@ -51,8 +51,7 @@ public class MyServlet extends HttpServlet {
 		System.out.println("isRedirect : " + isRedirect);
 		
 		if(isRedirect != null){			
-			response.sendRedirect(nextPage);
-			
+			response.sendRedirect(nextPage);			
 		} else {			
 			request.getRequestDispatcher(nextPage).forward(request, response);
 		}
