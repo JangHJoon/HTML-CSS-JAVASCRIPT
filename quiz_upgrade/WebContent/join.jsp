@@ -94,8 +94,8 @@
 		
 		if(pw && re){
 			
-			pw.addEventListener("onblur", chkSamePw)
-			
+			pw.addEventListener("onblur", chkSamePw(pw.));
+			re.addEventListener("onblur", chkSamePw);
 			
 		}
 		
@@ -112,7 +112,7 @@
 	<form name="joinForm">
 		<div class="centerBox">
 			<label for="u_id">ID :</label> <input type="text" name="u_id" value="<%= user.getId() %>" /><br/>
-			<label for="u_pw">PW :</label> <input type="password" name="u_pw" value="<%= user.getId() %>"  /><br/>
+			<label for="u_pw">PW :</label> <input type="password" name="u_pw" value="<%= user.getId() %>"  onblur=""/><br/>
 			<label for="u_re">Retry :</label> <input type="password" name="u_re" value="<%= user.getPw() %>" /><br/>
 			<label for="u_name">Name :</label> <input type="text" name="u_name" value="<%= user.getName() %>" /><br/>
 			<label for="u_nick">Nick :</label> <input type="text" name="u_nick" value="<%= user.getNick() %>" /><br/>				
