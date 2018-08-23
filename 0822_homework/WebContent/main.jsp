@@ -28,6 +28,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>main.jsp</title>
 	<style>
+	ul { list-style-type: none }
+	a:link, a:visited {
+    background-color: #555555;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: #888888;
+}
 	html{
 		width: 100%;
 		height: 100%;
