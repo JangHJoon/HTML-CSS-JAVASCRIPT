@@ -14,9 +14,7 @@
 		var formObj = document.searchForm;
 		formObj.method="get";
 		formObj.action="search.do";
-		formObj.submit();
-		
-		
+		formObj.submit();		
 	}
 	
 	
