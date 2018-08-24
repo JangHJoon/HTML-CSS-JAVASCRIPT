@@ -29,7 +29,8 @@ SELECT DISTINCT c.c_name FROM customers AS c, order_list AS o, products AS p WHE
 SELECT DISTINCT c.c_name, c.c_addr, p.p_name FROM customers AS c, order_list AS o, products AS p WHERE c.c_id = o.c_id AND o.p_id = p.p_id AND (p.p_name = 'DVD' OR p.p_name = 'TV');  
 
 -- 7. doo가 구매한 가격의 총액을 구하시오.
-SELECT SUM(p.p_price*o.o_count) FROM customers AS c, order_list AS o, products AS p WHERE c.c_id = o.c_id AND o.p_id = p.p_id GROUP BY c.c_name HAVING c.c_name = 'doo';
+SELECT SUM(p.p_price*o.o_count) FROM customers AS c, order_list AS o, products AS p 
+WHERE c.c_id = o.c_id AND o.p_id = p.p_id GROUP BY c.c_name HAVING c.c_name = 'doo';
 
 -- 8. 직업이 teacher인 사람이 구매한 제품목록을 구하시오.
 SELECT DISTINCT p.p_name FROM job_list AS j, customers AS c, order_list AS o, products AS p WHERE c.c_id = o.c_id AND o.p_id = p.p_id AND c.j_id = j.j_id AND j.job = 'teacher';
