@@ -6,6 +6,6 @@ CREATE TABLE items (
 
 
 );
-
+                                                                                                                                                                     ccccccccccccccc
 
 SELECT * FROM items;
