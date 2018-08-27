@@ -54,9 +54,9 @@ SELECT p.prod_id, o.quantity, o.item_price,  o.quantity*o.item_price AS expanded
 -- GROUP BY 사용
 
 SELECT v.vend_id, COUNT(*) FROM products AS p, vendors AS v 
-WHERE v.vend_id = p.vend_id AND p.prod_price >= 4 GROUP BY v.vend_id HAVING COUNT(*) >= 2;
+WHERE v.vend_id = p.vend_id AND p.prod_price >= 4 GROUP BY v.vend_id HAVING COUNT(*) >= 2  ;
 
-venders 
+
 
 -- 9. ‘King doll’ 을 생산한 제조사의 이름과 주소를 구하라.
 
@@ -64,7 +64,11 @@ SELECT v.vend_name, v.vend_address FROM vendors AS v, products AS p WHERE p.prod
 
 -- 10. ‘RGAN01’ 물품을 주문한 모든 고객의 목록을 구하라.
 
-SELECT c.cust_name FROM customers AS c, orders AS o, orderItems AS oi, products AS p WHERE c.cust_id = o.cust_id AND oi.order_num = o.order_num AND oi.prod_id = p.prod_id AND p.prod_name = 'RGAN01';
+SELECT c.cust_name FROM customers AS c, orders AS o, orderItems AS oi, products AS p 
+WHERE c.cust_id = o.cust_id AND oi.order_num = o.order_num AND oi.prod_id = p.prod_id 
+AND p.prod_id = 'RGAN01';
+
+
 
 
 -- 11. 한번도 주문하지 않은 고객의 이름을 구하라.
