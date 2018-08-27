@@ -56,6 +56,7 @@ public class ItemDao {
 		try {
 			// DB마다 문자열 내용이 다름
 			Class.forName("com.mysql.jdbc.Driver");
+			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -225,6 +226,48 @@ public class ItemDao {
 		return kor;
 		
 		
+	}
+
+	public int updateItem(Connection con, int id, Item item) {
+
+		String name = item.getItem_name();
+		int price = item.getItem_price();
+		
+		String sql = String.format("UPDATE items SET item_name = '%s' , item_price = %d WHERE item_id = %d", name, price, id);
+		
+		
+		Statement stmt = null;
+		int resultRow = 0;
+		try{
+			
+			stmt = con.createStatement();
+			resultRow = stmt.executeUpdate(sql);			
+			
+			
+		} catch(SQLException e){
+			e.printStackTrace();
+		} finally {
+			close(stmt);
+		}
+		
+		return resultRow;
+		
+	}
+
+	public int deleteItem(Connection con, int id) {
+		
+		String sql = String.format("DELETE FROM items WHERE item_id = %d ", id);
+		
+		Statement stmt = null;
+		int resultRow = 0;
+		try {
+			stmt = con.createStatement();
+			resultRow = stmt.executeUpdate(sql);
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}		
+		
+		return resultRow;
 	}
 	
 	

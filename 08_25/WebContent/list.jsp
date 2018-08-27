@@ -12,11 +12,11 @@
 <body>
 <table>
 
-<th>
-	<td>id</td>
-	<td>name</td>
-	<td>price</td>
-</th>
+<tr>
+	<th>id</th>
+	<th>name</th>
+	<th>price</th>
+</tr>
 <%
 
 
@@ -26,7 +26,7 @@
 	for(Item temp : list){
 
 %>
-<tr>
+<tr onclick="document.location ='/goModify.do';">
 	<td><%= temp.getItem_id() %></td>
 	<td><%= temp.getItem_name() %></td>
 	<td><%= temp.getItem_price() %></td>

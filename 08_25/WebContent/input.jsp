@@ -7,12 +7,12 @@
 <title>input.jsp</title>
 </head>
 <body>
-	<form action="connectionTest.jsp" method="post">
+	<form action="./insert.do" method="post">
 		name : <input type="text" name="item_name" />
 		<br>
 		price : <input type="text" name="item_price" />
 		<br>
-		<input type="submit" />
+		<input type="submit" value="ют╥б" />
 	</form>
 </body>
 </html>
