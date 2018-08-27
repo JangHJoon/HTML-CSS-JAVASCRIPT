@@ -9,7 +9,30 @@ import java.sql.Statement;
 import java.util.Vector;
 
 import kr.ac.green.dto.Item;
+/*
+ * DAO(= student manager)
+data access object
 
+
+
+1. 드라이버 로드(한번)
+
+2. 연결
+3. 질의
+4. 자원 해제(세션 제한)
+
+
+2~4 반복
+
+import java.sql
+1. Connection 객체(만들어 지면 데이터베이스와 연결된거, socket 객체랑 비슷함)
+2. Statement 객체(질의를 전송)
+3. ResultSet 객체(질의문의 결과, select)
+ 
+
+3->2->1 close();
+
+ */
 
 
 // SingleTon Pattern

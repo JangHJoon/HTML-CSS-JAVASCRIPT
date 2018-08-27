@@ -26,10 +26,19 @@ SELECT p.prod_price, p.prod_name FROM products AS p WHERE p.prod_price BETWEEN 5
 
 SELECT p.prod_name FROM products AS p WHERE p.prod_price = NULL;
 
+SELECT 
+	prod_name
+FROM 
+	products
+WHERE 
+	prod_price IS NULL;
+
 -- 4. 제조 업체(vender_id)가 ‘DDL01’이 아닌 제품의 이름(prod_name)을 가져오시오. 단 이름으로 오름차순 정렬한다.
 -- products
 
-SELECT p.prod_name FROM products AS p, vendors AS v WHERE p.vend_id = v.vend_id AND v.vend_id <> 'DDL01' ORDER BY p.prod_name;
+SELECT p.prod_name FROM products AS p, vendors AS v 
+WHERE p.vend_id = v.vend_id AND v.vend_id <> 'DDL01' 
+ORDER BY p.prod_name;
 
 -- 5. 제품의 이름(prod_name)이 ‘Fish’로 시작하는 모든 제품의 아이디(prod_id)와 이름(prod_name)을 검색하시오.
 -- products
@@ -60,7 +69,8 @@ WHERE v.vend_id = p.vend_id AND p.prod_price >= 4 GROUP BY v.vend_id HAVING COUN
 
 -- 9. ‘King doll’ 을 생산한 제조사의 이름과 주소를 구하라.
 
-SELECT v.vend_name, v.vend_address FROM vendors AS v, products AS p WHERE p.prod_name = 'King doll';
+SELECT v.vend_name, v.vend_address FROM vendors AS v, products AS p 
+WHERE p.prod_name = 'King doll';
 
 -- 10. ‘RGAN01’ 물품을 주문한 모든 고객의 목록을 구하라.
 
@@ -73,7 +83,22 @@ AND p.prod_id = 'RGAN01';
 
 -- 11. 한번도 주문하지 않은 고객의 이름을 구하라.
 
-SELECT DISTINCT c.cust_name FROM customers AS c WHERE c.cust_id NOT IN (SELECT DISTINCT o.cust_id FROM orders AS o);
+SELECT DISTINCT c.cust_name FROM customers AS c 
+WHERE c.cust_id NOT IN (
+	SELECT DISTINCT o.cust_id FROM orders AS o
+);
+
+
+SELECT 
+	customers.cust_name
+FROM 
+	customers 
+	LEFT OUTER JOIN 
+	orders
+ON 
+	customers.cust_id = orders.cust_id
+WHERE 
+	orders.order_num IS NULL;
 
 -- 12. 제조사 이름(vend_name)이 ‘Bears R Us’ 인 제조사의 제품을 구매한 모든 고객의 이름(cust_name)을 구하시오. 단 중복은 제거한다.
 
@@ -83,8 +108,23 @@ WHERE c.cust_id = o.cust_id AND oi.order_num = o.order_num AND oi.prod_id = p.pr
 -- 13. 가장 비싼 제품을 구매한 구매자의 이름 (cust_name) 과 판매가격(item_price), 구매수량(quantity)을 구하라.
 
 SELECT c.cust_name, oi.item_price, oi.quantity FROM orderItems AS oi, orders AS o, customers AS c
-WHERE oi.order_num = o.order_num AND o.cust_id = c.cust_id AND oi.item_price = (SELECT MAX(item_price) FROM orderItems);
+WHERE oi.order_num = o.order_num AND o.cust_id = c.cust_id AND oi.item_price = (
+	SELECT MAX(item_price) FROM orderItems
+);
 
 -- 14. 제품을 하나도 생산하지 않은 제조사이름(vend_name)을 구하라.
 
-SELECT v.vend_name FROM vendors AS v WHERE v.vend_id NOT IN (SELECT DISTINCT p.vend_id FROM products AS p);
+SELECT v.vend_name FROM vendors AS v WHERE v.vend_id NOT IN (
+	SELECT DISTINCT p.vend_id FROM products AS p
+);
+
+SELECT 
+	vend_name 
+FROM 
+	vendors 
+	LEFT OUTER JOIN 
+	products 
+ON 
+	vendors.vend_id = products.vend_id
+WHERE 
+	prod_name IS NULL;
