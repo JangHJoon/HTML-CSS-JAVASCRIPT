@@ -12,4 +12,6 @@ public interface IDao {
 
 	public int getTotalCount(Connection con);
 	public int insert(Connection con, Post post);
+	public Post[] getList(Connection con, int pageNum, int perPage);
+	public Post getPost(Connection con, int id);
 }

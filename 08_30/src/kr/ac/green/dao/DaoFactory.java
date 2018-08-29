@@ -6,7 +6,7 @@ public class DaoFactory {
 		if(db.equals("mysql")) {
 			dao = MySqlDummyDao.getInstance();
 		} else {
-			dao = new OracleDummyDao();
+			
 		}
 	}
 	

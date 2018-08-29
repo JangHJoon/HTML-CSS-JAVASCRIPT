@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="insert.html">
+	<form action="insert.html" method="post">
 	title : <input type="text" name="p_title" />
 	password : <input type="password" name="p_password" />
 	<br />

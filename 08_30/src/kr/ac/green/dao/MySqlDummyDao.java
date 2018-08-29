@@ -33,6 +33,62 @@ public class MySqlDummyDao implements IDao {
 	}
 	
 	@Override
+	public Post getPost(Connection con, int id) {
+		
+		String sql = "SELECT * FROM posts WHERE p_id = ?";
+		PreparedStatement pStmt = null;
+		ResultSet rs = null;		
+		Post post = null;
+		
+		try {
+			pStmt = con.prepareStatement(sql);
+			pStmt.setInt(1, id);
+			rs = pStmt.executeQuery();
+			if(rs.next()){
+			//int p_id, String p_ip, String p_title, String p_content,String p_date
+				post = new Post(rs.getInt("p_id"), rs.getString("p_ip"), rs.getString("p_title"), rs.getString("p_content"), rs.getString("p_date"));
+				
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pStmt);
+		}
+		
+		return post;
+	}
+
+	@Override
+	public Post[] getList(Connection con, int pageNum, int perPage){
+		String sql = "SELECT * FROM posts ORDER BY p_id DESC LIMIT ?, ?";
+		PreparedStatement pStmt = null;
+		ResultSet rs = null;
+		Post[] list = null;
+		
+		try{
+			pStmt = con.prepareStatement(sql);			
+			pStmt.setInt(1, (pageNum-1)*perPage);
+			pStmt.setInt(2, perPage);
+			rs = pStmt.executeQuery();
+			
+			Vector<Post> vec = new Vector<Post>();
+			while(rs.next()){ //int p_id, String p_ip, String p_title, String p_date
+				vec.add(new Post(rs.getInt("p_id"), rs.getString("p_ip"), rs.getString("p_title"), rs.getTimestamp("p_date").toString()));				
+			}
+			list = vec.toArray(new Post[0]);
+			
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pStmt);
+		}		
+		return list;
+			
+	}
+	
+	@Override
 	public int insert(Connection con, Post post) {
 		
 		String sql = "INSERT INTO posts (p_title, p_content, p_password, p_ip, p_date) VALUE (?,?,?,?,now())";
@@ -51,6 +107,8 @@ public class MySqlDummyDao implements IDao {
 			
 		}catch(SQLException e){
 			e.printStackTrace();
+		} finally {
+			close(pStmt);
 		}
 		
 		return resultRow;
@@ -105,30 +163,7 @@ public class MySqlDummyDao implements IDao {
 		return rowCount;
 	}
 	
-	 private Date transformDate(String date)
-	    {
-	        SimpleDateFormat beforeFormat = new SimpleDateFormat("yyyymmdd");
-	        
-	        // Date로 변경하기 위해서는 날짜 형식을 yyyy-mm-dd로 변경해야 한다.
-	        SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-mm-dd");
-	        
-	        java.util.Date tempDate = null;
-	        
-	        try {
-	            // 현재 yyyymmdd로된 날짜 형식으로 java.util.Date객체를 만든다.
-	            tempDate = beforeFormat.parse(date);
-	        } catch (ParseException e) {
-	            e.printStackTrace();
-	        }
-	        
-	        // java.util.Date를 yyyy-mm-dd 형식으로 변경하여 String로 반환한다.
-	        String transDate = afterFormat.format(tempDate);
-	        
-	        // 반환된 String 값을 Date로 변경한다.
-	        Date d = Date.valueOf(transDate);
-	        
-	        return d;
-	    }
+
 
 
 

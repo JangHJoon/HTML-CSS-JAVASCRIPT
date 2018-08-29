@@ -29,7 +29,7 @@
 		} else {	
 			for(Post p : posts){
 	%>
-		<tr>
+		<tr onclick="location.href='show.html?p_id=<%= p.getP_id() %>'">
 			<td><%= p.getP_id() %></td>
 			<td><%= p.getP_title() %></td>
 			<td><%= p.getP_date() %></td>

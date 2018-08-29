@@ -22,6 +22,30 @@ public class Post {
 		this.p_date = p_date;
 	}
 	
+	
+	
+	
+	
+
+	public Post(int p_id, String p_ip, String p_title, String p_content,
+			String p_date) {
+		super();
+		this.p_id = p_id;
+		this.p_ip = p_ip;
+		this.p_title = p_title;
+		this.p_content = p_content;
+		this.p_date = p_date;
+	}
+	
+
+	public Post(int p_id, String p_ip, String p_title, String p_date) {
+		super();
+		this.p_id = p_id;
+		this.p_ip = p_ip;
+		this.p_title = p_title;
+		this.p_date = p_date;
+	}
+
 	public Post(int p_id, String p_ip, String p_password, String p_title,
 			String p_content, String p_date) {
 		this.p_id = p_id;
