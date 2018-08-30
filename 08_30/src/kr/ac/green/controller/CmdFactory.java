@@ -5,6 +5,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import kr.ac.green.cmd.ICmd;
 
@@ -60,9 +61,9 @@ public class CmdFactory {
 	}
 	
 	public static String searchAndDo(
-		HttpServletRequest request, String cmd) {
+		HttpServletRequest request, HttpServletResponse response, String cmd) {
 		
-		return cmds.get(cmd).action(request);		
+		return cmds.get(cmd).action(request,response);		
 	}
 }
 

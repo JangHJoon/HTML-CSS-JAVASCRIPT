@@ -15,3 +15,5 @@ SELECT * FROM posts;
 
 INSERT INTO posts (p_title,p_content, p_password, p_date, p_ip)
 VALUE ('1','1','1',now(),'0:0:0:0:0:0:0:1');
+
+SELECT COUNT(*) AS result FROM posts WHERE p_id =  , p_password = ?

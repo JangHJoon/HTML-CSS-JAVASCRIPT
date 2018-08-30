@@ -28,6 +28,60 @@ public class MySqlDummyDao implements IDao {
 		}		
 	}
 	
+	
+	
+	@Override
+	public int update(Connection con, Post post) {
+			
+		String sql = "UPDATE posts SET p_ip = ? , p_title = ? , p_content = ? , p_password = ?, p_date = now() WHERE p_id = ? ";
+		PreparedStatement pStmt = null;
+		int resultRow = 0;
+		
+		try{
+			pStmt = con.prepareStatement(sql);
+			pStmt.setString(1, post.getP_ip());
+			pStmt.setString(2, post.getP_title());
+			pStmt.setString(3, post.getP_content());
+			pStmt.setString(4, post.getP_password());
+			pStmt.setInt(5, post.getP_id());
+			
+			resultRow = pStmt.executeUpdate();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		} finally {
+			close(pStmt);
+		}
+		
+		return resultRow;
+	}
+
+
+
+	@Override
+	public int delete(Connection con, int id) {
+		System.out.println("delete dao in");
+		String sql = "DELETE FROM posts WHERE p_id = ?";
+		PreparedStatement pStmt = null;
+		int resultRow = 0;
+		
+		try{
+			pStmt = con.prepareStatement(sql);
+			pStmt.setInt(1, id);
+			resultRow = pStmt.executeUpdate();
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();			
+		}finally {
+			close(pStmt);
+		}
+		
+		return resultRow;
+	}
+
+
+
 	static MySqlDummyDao getInstance() {
 		return instance;
 	}
@@ -45,8 +99,8 @@ public class MySqlDummyDao implements IDao {
 			pStmt.setInt(1, id);
 			rs = pStmt.executeQuery();
 			if(rs.next()){
-			//int p_id, String p_ip, String p_title, String p_content,String p_date
-				post = new Post(rs.getInt("p_id"), rs.getString("p_ip"), rs.getString("p_title"), rs.getString("p_content"), rs.getString("p_date"));
+			//int p_id, String p_ip, String p_password, String p_title, String p_content, String p_date
+				post = new Post(rs.getInt("p_id"), rs.getString("p_ip"), rs.getString("p_password"), rs.getString("p_title"), rs.getString("p_content"), rs.getString("p_date"));
 				
 			}
 		}catch(SQLException e){
@@ -136,7 +190,7 @@ public class MySqlDummyDao implements IDao {
 	
 	@Override
 	public int getTotalCount(Connection con) {
-		String sql = "SELECT COUNT(*) totalCount FROM dummy";
+		String sql = "SELECT COUNT(*) totalCount FROM posts";
 		PreparedStatement pStmt = null;
 		ResultSet rs = null;
 		int rowCount = 0;
@@ -164,9 +218,41 @@ public class MySqlDummyDao implements IDao {
 	}
 	
 
+		
 
 
 
+	@Override
+	public boolean checkPw(Connection con, int id, String pw) {
+		String sql = "SELECT COUNT(*) AS result FROM posts WHERE p_id = ? AND p_password = ?";
+		PreparedStatement pStmt = null;
+		ResultSet rs = null;
+		boolean validPw = false;
+		System.out.println("id : " + id);
+		System.out.println("pw : " + pw);
+		try{
+			pStmt = con.prepareStatement(sql);
+			pStmt.setInt(1, id);
+			pStmt.setString(2, pw);
+			rs = pStmt.executeQuery();
+			
+			if(rs.next()){
+				if(rs.getInt("result") != 0){
+					validPw = true;
+				}
+			}
+			
+			
+			
+		} catch(SQLException e){
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pStmt);
+		}
+		
+		return validPw;
+	}
 
 	private void close(ResultSet rs) {
 		try {

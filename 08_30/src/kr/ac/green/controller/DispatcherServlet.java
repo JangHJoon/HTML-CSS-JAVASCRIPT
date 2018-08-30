@@ -85,19 +85,22 @@ public class DispatcherServlet extends HttpServlet {
 		
 		
 		
-		
-		
 		String cmd = request.getRequestURI().substring(
 			request.getContextPath().length()
 		);		
 		request.setAttribute("cmd", cmd);
-		String nextPage = CmdFactory.searchAndDo(request, cmd);
+		String nextPage = CmdFactory.searchAndDo(request, response, cmd);
 		
 		if(request.getAttribute("isRedirect") != null) {
 			response.sendRedirect(nextPage);
 		} else {
-			request.getRequestDispatcher(nextPage)
-			.forward(request, response);
+			
+			if(request.getAttribute("ajax") == null){
+				request.getRequestDispatcher(nextPage)
+				.forward(request, response);
+			} else {
+				
+			}
 		}
 	}
 }
