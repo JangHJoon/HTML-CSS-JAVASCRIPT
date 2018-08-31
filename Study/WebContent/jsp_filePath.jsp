@@ -16,6 +16,11 @@
 // remove all 
 // finish
 
+<%
+	request.getRequestDispatcher("url").forward(request, response);
+%>
+<jsp:forward page="url" />
+
 // close and server f3
 // server location tap enable
 // set server folder
