@@ -18,6 +18,8 @@
 
 <%
 	request.getRequestDispatcher("url").forward(request, response);
+	pageContext.forward("url");
+		
 %>
 <jsp:forward page="url" />
 
